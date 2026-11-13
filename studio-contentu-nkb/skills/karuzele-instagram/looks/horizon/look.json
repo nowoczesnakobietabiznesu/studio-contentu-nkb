@@ -1,0 +1,58 @@
+{
+ "name": "Wschód Słońca",
+ "about": "Ciemne tło i jedno ogromne, ciepłe słońce wschodzące od dołu. Głośne, wąskie nagłówki, pod nimi miękka linijka szeryfową kursywą, a puenta (prompt, pointa, słowo-klucz) siedzi w słońcu ciemnym tekstem. Wygląda jak plakat filmowy. Bez zdjęć. Najlepszy dla: porad, promptów, pieniędzy i wyników, wszystkiego, co ma wybrzmieć wielko.",
+ "size": "3:4",
+ "kind": "type",
+ "for": [
+  "everyone",
+  "him"
+ ],
+ "niches": [
+  "ai",
+  "tech",
+  "business",
+  "money",
+  "marketing",
+  "prompts",
+  "tips"
+ ],
+ "imageStyle": "dark, moody, warm orange light, cinematic, lots of black around the subject",
+ "fonts": [
+  {
+   "family": "Archivo",
+   "file": "Archivo-var.woff2",
+   "weight": "100 900",
+   "stretch": "62% 125%"
+  },
+  {
+   "family": "Instrument Serif",
+   "file": "InstrumentSerif-italic.woff2",
+   "style": "italic"
+  },
+  {
+   "family": "IBM Plex Mono",
+   "file": "IBMPlexMono-600.woff2",
+   "weight": "600"
+  }
+ ],
+ "vars": {
+  "--bg": "#0a0503",
+  "--ink": "#ffffff",
+  "--ink-soft": "rgba(255,236,226,0.86)",
+  "--ink-dim": "rgba(255,255,255,0.55)",
+  "--accent": "#FF8E5C",
+  "--sun-hi": "#FFB48C",
+  "--sun-lo": "#F26F3B",
+  "--on-sun": "#160903",
+  "--font-head": "'Archivo', sans-serif",
+  "--font-body": "'Archivo', sans-serif",
+  "--font-serif": "'Instrument Serif', serif",
+  "--font-mono": "'IBM Plex Mono', monospace",
+  "--pad-x": "64px",
+  "--pad-top": "128px",
+  "--pad-bottom": "150px",
+  "--min-text": "26px",
+  "--zm-grow": "1.35"
+ },
+ "name_en": "Horizon"
+}

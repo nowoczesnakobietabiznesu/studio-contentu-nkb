@@ -1,0 +1,45 @@
+{
+ "name": "Notatnik",
+ "slug": "notatnik",
+ "nkb": {
+  "kind": "overall",
+  "catalog": "styl-notatnik",
+  "tag": "Jasno, z kursywą i dopiskami"
+ },
+ "caption": {
+  "font": "Instrument Serif",
+  "weight": 400,
+  "italic": true,
+  "size": 120,
+  "line_height": 1.0,
+  "color": "#FFF8EF",
+  "accent": "#CD9F38",
+  "shadow": "0 6px 26px rgba(0,0,0,.3)",
+  "mark": "none",
+  "lit": "none",
+  "words": 3,
+  "chars": 18,
+  "lines": 2,
+  "position": 1470,
+  "margin": 108,
+  "align": "center",
+  "entrance": "none",
+  "css": ".cu .ln:first-child:not(:only-child){font:500 56px/1.3 Inter;font-style:normal;text-transform:lowercase;text-shadow:0 6px 22px rgba(0,0,0,.4)} .cu .ln:last-child .w{color:var(--acc)} .cu .w{opacity:0}",
+  "word_motion": {
+   "tween": "fromTo",
+   "from": {
+    "opacity": 0,
+    "y": 14
+   },
+   "vars": {
+    "opacity": 1,
+    "y": 0,
+    "duration": 0.3,
+    "ease": "power2.out"
+   }
+  }
+ },
+ "grade": "brightness(1.07) saturate(1.08)",
+ "pace": "spokojne, naturalne pauzy zostają",
+ "sound": "sam głos"
+}

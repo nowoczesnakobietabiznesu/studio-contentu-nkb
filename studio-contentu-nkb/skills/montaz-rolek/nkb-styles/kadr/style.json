@@ -1,0 +1,44 @@
+{
+ "name": "Kadr",
+ "slug": "kadr",
+ "nkb": {
+  "kind": "captions",
+  "family": "spokojne",
+  "catalog": "napis-kadr"
+ },
+ "caption": {
+  "accent": "#CD9F38",
+  "position": 1470,
+  "margin": 108,
+  "align": "center",
+  "lines": 1,
+  "mark": "none",
+  "lit": "none",
+  "entrance": "fade",
+  "font": "Poppins",
+  "weight": 500,
+  "size": 44,
+  "tracking": 0.32,
+  "case": "upper",
+  "line_height": 1.6,
+  "color": "#FFFFFF",
+  "shadow": "0 5px 19px rgba(0,0,0,.6)",
+  "words": 4,
+  "chars": 26,
+  "dy": -32,
+  "motion": [
+   {
+    "target": "self",
+    "tween": "from",
+    "vars": {
+     "y": 20,
+     "duration": 0.6,
+     "ease": "power2.out"
+    }
+   }
+  ],
+  "css": ".cu::before{content:'';display:block;width:9%;height:3px;background:var(--acc);margin:0 auto 28px}"
+ },
+ "pace": "jak w nagraniu, pauzy przycięte",
+ "sound": "sam głos"
+}

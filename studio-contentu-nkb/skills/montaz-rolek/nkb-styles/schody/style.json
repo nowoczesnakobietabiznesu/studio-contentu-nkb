@@ -1,0 +1,53 @@
+{
+ "name": "Schody",
+ "slug": "schody",
+ "nkb": {
+  "kind": "captions",
+  "family": "dynamiczne",
+  "catalog": "napis-schody"
+ },
+ "caption": {
+  "accent": "#CD9F38",
+  "position": 1470,
+  "margin": 108,
+  "align": "center",
+  "lines": 1,
+  "mark": "accent",
+  "lit": "none",
+  "entrance": "none",
+  "font": "Poppins",
+  "weight": 700,
+  "size": 76,
+  "line_height": 1.15,
+  "color": "#FFFFFF",
+  "shadow": "0 9px 38px rgba(0,0,0,.45)",
+  "words": 3,
+  "chars": 18,
+  "stack": {
+   "keep": 3,
+   "gap": 6,
+   "dim": [
+    0.45,
+    0.18
+   ],
+   "scale": [
+    0.86,
+    0.74
+   ]
+  },
+  "css": ".cu .w{opacity:0}",
+  "word_motion": {
+   "tween": "fromTo",
+   "from": {
+    "opacity": 0
+   },
+   "vars": {
+    "opacity": 1,
+    "duration": 0.15,
+    "ease": "power1.out"
+   }
+  }
+ },
+ "pace": "jak w nagraniu, pauzy przycięte",
+ "sound": "sam głos"
+}

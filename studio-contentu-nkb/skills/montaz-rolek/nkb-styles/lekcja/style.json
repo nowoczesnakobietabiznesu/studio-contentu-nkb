@@ -1,0 +1,47 @@
+{
+ "name": "Lekcja",
+ "slug": "lekcja",
+ "nkb": {
+  "kind": "overall",
+  "catalog": "styl-lekcja",
+  "tag": "Krok po kroku"
+ },
+ "caption": {
+  "accent": "#CD9F38",
+  "position": 1470,
+  "margin": 108,
+  "align": "center",
+  "lines": 1,
+  "mark": "none",
+  "lit": "none",
+  "entrance": "none",
+  "font": "Poppins",
+  "weight": 600,
+  "size": 73,
+  "line_height": 1.25,
+  "color": "#141414",
+  "shadow": false,
+  "words": 4,
+  "chars": 20,
+  "plate": {
+   "color": "#F8F3EA",
+   "radius": 14,
+   "pad": [
+    17,
+    37
+   ]
+  },
+  "css": ".cu .pl{box-shadow:0 28px 85px -38px rgba(0,0,0,.5)} .cu .w.m{background:linear-gradient(transparent 52%,color-mix(in srgb,var(--acc) 72%,transparent) 52%) no-repeat 0 0/0% 100%}",
+  "mark_motion": {
+   "tween": "to",
+   "vars": {
+    "backgroundSize": "100% 100%",
+    "duration": 0.35,
+    "ease": "power2.out"
+   }
+  }
+ },
+ "grade": "brightness(1.07) saturate(1.08)",
+ "pace": "średnie, każdy krok to osobna część",
+ "sound": "odhaczenie przy każdym kroku"
+}

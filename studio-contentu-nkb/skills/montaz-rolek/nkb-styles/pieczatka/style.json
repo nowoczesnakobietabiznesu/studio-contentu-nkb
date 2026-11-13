@@ -1,0 +1,32 @@
+{
+ "name": "Pieczątka",
+ "slug": "pieczatka",
+ "nkb": {
+  "kind": "captions",
+  "family": "wyraziste",
+  "catalog": "napis-pieczatka"
+ },
+ "caption": {
+  "accent": "#CD9F38",
+  "position": 1470,
+  "margin": 108,
+  "align": "center",
+  "lines": 1,
+  "mark": "highlight",
+  "lit": "pop",
+  "entrance": "none",
+  "font": "Poppins",
+  "weight": 800,
+  "size": 86,
+  "case": "upper",
+  "line_height": 1.12,
+  "color": "#FFFFFF",
+  "shadow": "0 9px 38px rgba(0,0,0,.45)",
+  "lit_text": "#141414",
+  "words": 3,
+  "chars": 16,
+  "css": ".cu .w.m{transform:rotate(-2.5deg)}"
+ },
+ "pace": "jak w nagraniu, pauzy przycięte",
+ "sound": "sam głos"
+}

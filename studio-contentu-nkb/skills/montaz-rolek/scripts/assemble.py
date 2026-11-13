@@ -1,0 +1,158 @@
+#!/usr/bin/env python3
+"""Cut the reel straight from the originals into <project>/assets/aroll.mp4 (1080x1920, clean 30fps CFR from t=0).
+
+Usage:  PY assemble.py <project_dir>      (PY = the skill's Python, see SKILL.md; any Python 3 works for this one)
+Needs <project>/fragments.json (from fragments.py, newer than transcript.txt: the buyer's pick of the lines, or
+"--auto buyer|no-browser" when she handed the pick over), <project>/sources.json (from ingest.py) and <project>/edl.json:
+  [{"id": "hook", "clip": "c1", "in": 12.66, "out": 15.72, "zoom": 1.0, "cx": 0.5, "cy": 0.5, "line": "Everybody's..."}, ...]
+  zoom > 1 = punch-in cropped from the original (sharp when the source is 4K), centred on (cx, cy) as frame fractions.
+Writes segments.json with each segment's first frame in the cut ("frame") and frame count ("frames").
+
+Why the CFR re-encode: ffmpeg concat leaves a 0.033s video start offset and timestamp gaps; `hyperframes remove-background`
+then duplicates frames and the cutout drifts out of sync with the base video by the end. setpts=N/30 fixes it.
+"""
+import json
+import os
+import subprocess
+import sys
+
+sys.dont_write_bytecode = True   # no __pycache__ next to the scripts (a plugin's folder is not ours to write in)
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import skillenv  # noqa: E402
+
+FF, FP = skillenv.tool('ffmpeg'), skillenv.tool('ffprobe')
+
+
+def size(f):
+    """Width and height as ffmpeg's filters see the frame. Phones often store a vertical clip sideways with a rotation
+    tag; ffmpeg turns it upright before -vf runs, so a 90/270 tag swaps the stored width and height."""
+    d = json.loads(subprocess.run([FP, '-v', 'error', '-select_streams', 'v:0', '-show_entries',
+                                   'stream=width,height:stream_tags=rotate:stream_side_data=rotation', '-of', 'json', f],
+                                  **skillenv.TEXT).stdout or '{}')
+    s = (d.get('streams') or [{}])[0]
+    w, h = int(s['width']), int(s['height'])
+    rot = str((s.get('tags') or {}).get('rotate') or next((x.get('rotation') for x in s.get('side_data_list') or []
+                                                           if 'rotation' in x), 0) or 0)
+    if rot.lstrip('-').split('.')[0] in ('90', '270'):
+        w, h = h, w
+    return w, h
+
+
+def crop(z, cx, cy, sw, sh):
+    if z <= 1:
+        return ''
+    w, h = round(sw / z / 2) * 2, round(sh / z / 2) * 2
+    x = min(max(round(cx * sw - w / 2), 0), sw - w)
+    y = min(max(round(cy * sh - h / 2), 0), sh - h)
+    return f'crop={w}:{h}:{x}:{y},'
+
+
+def frames(f):
+    return int(subprocess.run([FP, '-v', 'error', '-count_frames', '-select_streams', 'v:0', '-show_entries', 'stream=nb_read_frames',
+                               '-of', 'csv=p=0', f], **skillenv.TEXT).stdout.strip().split(',')[0])
+
+
+def fragments_gate(proj, edl):
+    """The buyer picks the lines before anything is cut (SKILL.md step 1b). No pick, or a pick older than the
+    transcript (clips ingested again since): stop. Segments outside her ticks: a NOTE, not a stop (a notes round
+    can ask for another take in chat)."""
+    fj, tx = os.path.join(proj, 'fragments.json'), os.path.join(proj, 'transcript.txt')
+    picker = f'PY "SK/scripts/fragments.py" "{proj}" --until-saved'
+    if not os.path.isfile(fj) and os.path.isfile(os.path.join(proj, 'segments.json')):
+        print('NOTE no fragments.json: a reel cut before the fragment picker existed, so this notes round goes on.')
+        return
+    if not os.path.isfile(fj):
+        sys.exit('STOP fragments MISSING: she has not picked the fragments of this reel yet. Do not cut.\n'
+                 f'  Open the picker IN THE BACKGROUND: {picker}\n'
+                 '  tell her the page is open, wait for STATUS fragments SAVED, then write edl.json from fragments.json.\n'
+                 '  This holds also when ingest.py ran in an earlier turn, the reel is one clip and one take, or a '
+                 'concept was agreed.\n'
+                 f'  Only she can skip it ("wybierz sam") or no browser: PY "SK/scripts/fragments.py" "{proj}" '
+                 '--auto buyer|no-browser')
+    if os.path.isfile(tx) and os.path.getmtime(tx) > os.path.getmtime(fj):
+        sys.exit('STOP fragments STALE: transcript.txt is newer than fragments.json (the clips were ingested again). '
+                 f'Open the picker again: {picker}')
+    try:
+        with open(fj, encoding='utf-8') as fh:
+            frag = json.load(fh)
+    except (OSError, ValueError):
+        sys.exit(f'STOP fragments BROKEN: {fj} cannot be read. Open the picker again: {picker}')
+    picked = frag.get('picked') or []
+    if not picked:
+        sys.exit(f'STOP fragments EMPTY: nothing picked. Open the picker again: {picker}')
+    by = frag.get('by') or 'buyer'
+    print(f"fragments: picked by {'her' if by == 'buyer' else 'Claude (' + str(frag.get('reason')) + ')'}, "
+          f'{len(picked)} lines')
+    if by != 'buyer':
+        return
+    for s in edl:
+        hit = any(p.get('clip') == s.get('clip') and min(float(p['out']), float(s['out'])) -
+                  max(float(p['in']), float(s['in'])) > 0.2 for p in picked)
+        if not hit:
+            print(f"NOTE segment {s.get('id')} ({s.get('clip')} {s.get('in')}-{s.get('out')}) is not one of the lines "
+                  'she ticked. Fine only when she asked for it in chat; otherwise follow her ticks.')
+
+
+def main():
+    skillenv.utf8_stdio()
+    args = sys.argv[1:]
+    proj = skillenv.path_arg(args[0])
+    work, assets = os.path.join(proj, 'work'), os.path.join(proj, 'assets')
+    with open(os.path.join(proj, 'sources.json'), encoding='utf-8') as fh:
+        src = json.load(fh)
+    with open(os.path.join(proj, 'edl.json'), encoding='utf-8') as fh:
+        edl = json.load(fh)
+    if '--trial' not in args:     # a trial reel (variations.py) is cut from a reel whose fragments were already picked
+        fragments_gate(proj, edl)
+    os.makedirs(work, exist_ok=True)
+    os.makedirs(assets, exist_ok=True)
+    aroll = os.path.join(assets, 'aroll.mp4')
+    parts, meta = [], []
+    for k, s in enumerate(edl):
+        f = src[s['clip']]
+        sw, sh = size(f)
+        d = s['out'] - s['in']
+        out = os.path.join(work, f'seg_{k}.mp4')
+        # vertical fill: scale to cover 1080x1920 then centre-crop (handles 4K 9:16 and odd phone sizes)
+        vf = (f"{crop(s.get('zoom', 1), s.get('cx', .5), s.get('cy', .5), sw, sh)}"
+              'scale=1080:1920:force_original_aspect_ratio=increase:flags=lanczos,crop=1080:1920,fps=30:start_time=0')
+        # Lip sync: every segment's video starts at 0 like its audio (fps start_time=0; without it a cut that lands between
+        # source frames starts its video one frame late) and its audio is exactly as long as its video (n frames =
+        # n * 1600 samples at 48 kHz). Left alone, both drift up to 33 ms per cut and the joins add that up over the reel.
+        n = max(1, round(d * 30))
+        for _ in range(2):
+            subprocess.run([FF, '-loglevel', 'error', '-y', '-ss', f"{s['in']:.3f}", '-t', f'{n / 30 + 0.1:.3f}', '-i', f,
+                            '-map', '0:v:0', '-map', '0:a:0', '-vf', vf, '-frames:v', str(n),
+                            '-af', f'aresample=48000,apad,atrim=end_sample={n * 1600},'
+                                   f'afade=t=in:d=0.02,afade=t=out:st={n / 30 - 0.03:.3f}:d=0.03',   # no clicks at the joins
+                            '-c:v', 'libx264', '-crf', '14', '-preset', 'medium', '-pix_fmt', 'yuv420p',
+                            '-c:a', 'pcm_s16le', '-ar', '48000', out], check=True)
+            got = frames(out)
+            if got == n:
+                break
+            n = got   # the clip ran out early: match the audio to the frames it really has
+        parts.append(out)
+        meta.append({**s, 'src_in': s['in'], 'src_out': s['out'], 'src_w': sw, 'src_h': sh})   # source size: 4K or not
+    # the list holds bare file names (resolved next to concat.txt), so no drive letters or backslashes end up in it
+    concat = os.path.join(work, 'concat.txt')
+    with open(concat, 'w', encoding='utf-8', newline='\n') as fh:
+        fh.write(''.join(skillenv.concat_entry(os.path.basename(p)) for p in parts))
+    subprocess.run([FF, '-loglevel', 'error', '-y', '-f', 'concat', '-safe', '0', '-i', concat,
+                    '-vf', 'setpts=N/30/TB', '-r', '30', '-fps_mode', 'cfr', '-af', 'asetpts=N/SR/TB',   # audio laid end to end, like the video
+                    '-c:v', 'libx264', '-crf', '14', '-preset', 'medium', '-g', '30', '-keyint_min', '30', '-pix_fmt', 'yuv420p',
+                    '-c:a', 'aac', '-b:a', '192k', aroll], check=True)
+    fr = 0
+    for k, m in enumerate(meta):
+        n = frames(parts[k])
+        m['frame'], m['frames'] = fr, n
+        fr += n
+    with open(os.path.join(proj, 'segments.json'), 'w', encoding='utf-8') as fh:
+        json.dump(meta, fh, indent=1)
+    for m in meta:
+        print(f"frame {m['frame']:4d} ({m['frame'] / 30:6.3f}s) +{m['frames']:3d}f  {m['id']:8s} {m['clip']} {m['in']}-{m['out']}  {m.get('line', '')}")
+    total = frames(aroll)
+    print(f'total frames {fr} (aroll.mp4 has {total})' + ('' if total == fr else '  << MISMATCH, investigate'))
+
+
+if __name__ == '__main__':
+    main()

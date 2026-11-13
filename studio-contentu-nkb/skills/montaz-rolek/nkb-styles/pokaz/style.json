@@ -1,0 +1,53 @@
+{
+ "name": "Pokaz",
+ "slug": "pokaz",
+ "nkb": {
+  "kind": "overall",
+  "catalog": "styl-pokaz",
+  "tag": "Grafika u góry, Ty na dole",
+  "needs": [
+   "clean cutout (rvm_cut.py)"
+  ]
+ },
+ "caption": {
+  "font": "Poppins",
+  "weight": 800,
+  "size": 69,
+  "line_height": 1.1,
+  "tracking": -0.02,
+  "color": "#121212",
+  "accent": "#CD9F38",
+  "shadow": false,
+  "mark": "accent",
+  "lit": "none",
+  "words": 2,
+  "chars": 16,
+  "lines": 1,
+  "position": 730,
+  "margin": 76,
+  "align": "center",
+  "entrance": "none",
+  "avoid_face": false,
+  "css": ".cu .w{opacity:0}",
+  "word_motion": {
+   "tween": "fromTo",
+   "from": {
+    "opacity": 0
+   },
+   "vars": {
+    "opacity": 1,
+    "duration": 0.1
+   }
+  }
+ },
+ "css": "#root{background:radial-gradient(38% 7% at 84% 5%,rgba(52,64,54,.07),transparent 72%),radial-gradient(30% 5% at 70% 12%,rgba(52,64,54,.05),transparent 72%),#ECEDF0}#plate{position:absolute;inset:0;transform:translateY(365px);clip-path:inset(730px 0 0 0 round 85px 85px 0 0)}#cutw{transform:translateY(365px)}",
+ "layers": [
+  {
+   "id": "wyciecie",
+   "anchor": "behind",
+   "html": ""
+  }
+ ],
+ "pace": "szybkie, nowa grafika mniej więcej co pół sekundy",
+ "sound": "sam głos"
+}

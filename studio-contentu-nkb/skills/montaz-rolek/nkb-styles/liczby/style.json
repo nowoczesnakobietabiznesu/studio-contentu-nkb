@@ -1,0 +1,53 @@
+{
+ "name": "Liczby",
+ "slug": "liczby",
+ "nkb": {
+  "kind": "captions",
+  "family": "edytorskie",
+  "catalog": "napis-liczby"
+ },
+ "caption": {
+  "accent": "#CD9F38",
+  "position": 1470,
+  "margin": 108,
+  "align": "center",
+  "lines": 1,
+  "mark": "none",
+  "lit": "none",
+  "entrance": "none",
+  "font": "Poppins",
+  "weight": 500,
+  "size": 64,
+  "line_height": 1.3,
+  "color": "#FFFFFF",
+  "shadow": "0 5px 28px rgba(0,0,0,.5)",
+  "words": 3,
+  "chars": 20,
+  "dy": -70,
+  "css": ".cu .w.m-num{font:900 2.6em/.95 'Bodoni Moda';color:var(--acc)} .cu .w{opacity:0}",
+  "word_motion": {
+   "tween": "fromTo",
+   "from": {
+    "opacity": 0
+   },
+   "vars": {
+    "opacity": 1,
+    "duration": 0.15,
+    "ease": "power1.out"
+   }
+  },
+  "mark_motion": {
+   "tween": "fromTo",
+   "from": {
+    "scale": 1.3
+   },
+   "vars": {
+    "scale": 1,
+    "duration": 0.3,
+    "ease": "back.out(2)"
+   }
+  }
+ },
+ "pace": "jak w nagraniu, pauzy przycięte",
+ "sound": "sam głos"
+}

@@ -1,0 +1,22 @@
+[
+ {
+  "layout": "hook",
+  "headline": "5 rzeczy, które\nchciałabym wiedzieć",
+  "image": {"src": "{photo1}", "fit": "bleed", "face": "{face1}"},
+  "class": "drop-xl",
+  "note": "Krótka lista, którą dałabym początkującej."
+ },
+ {
+  "headline": "Co powiedziałabym\nsobie na starcie",
+  "image": {"src": "{photo2}", "fit": "half", "side": "top", "face": "{face2}", "focus": "50% 30%"},
+  "items": {"style": "check", "list": ["Publikuj, zanim poczujesz się gotowa", "Zrobione wygrywa z idealnym", "Mów do jednej osoby, nie do wszystkich"]}
+ },
+ {
+  "layout": "cta",
+  "headline": "Chcesz\ncałą listę?",
+  "image": {"src": "{photo3}", "fit": "half", "side": "bottom", "face": "{face3}", "focus": "50% 25%"},
+  "keyword": "LISTA",
+  "keywordPost": "a wyślę Ci wszystkie 5.",
+  "follow": "Obserwuj {handle}, by nie przegapić kolejnych"
+ }
+]

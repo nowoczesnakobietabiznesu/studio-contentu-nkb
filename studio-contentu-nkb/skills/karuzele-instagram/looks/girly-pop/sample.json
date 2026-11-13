@@ -1,0 +1,9 @@
+[
+ {"layout": "hook", "label": "chodź ze mną!", "headline": "5 rzeczy, które\nchciałabym wiedzieć\n[[przed startem]]", "sub": "zapisz to sobie",
+  "image": {"src": "{photo1}", "fit": "bleed", "face": "{face1}"}},
+ {"label": "porada 01", "headline": "zacznij, zanim\n[[poczujesz się gotowa]]",
+  "items": ["Wybierz najmniejszą wersję", "Pokaż ją 3 prawdziwym osobom", "Popraw to, na czym się potknęły"],
+  "image": {"src": "{photo2}", "fit": "half", "side": "top", "share": 0.42, "focus": "50% 25%", "face": "{face2}"}},
+ {"layout": "cta", "headline": "chcesz\n[[całą listę?]]", "keyword": "LISTA", "keywordPost": "a wyślę Ci wszystkie 5",
+  "image": {"src": "{photo3}", "fit": "bleed", "face": "{face3}"}}
+]

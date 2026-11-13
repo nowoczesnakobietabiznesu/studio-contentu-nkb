@@ -1,0 +1,60 @@
+{
+ "name": "Elegancki",
+ "slug": "elegancki",
+ "nkb": {
+  "kind": "overall",
+  "catalog": "styl-elegancki",
+  "tag": "Studio wywiadu"
+ },
+ "caption": {
+  "font": "DM Serif Display",
+  "weight": 400,
+  "size": 112,
+  "line_height": 1.0,
+  "case": "lower",
+  "color": "#F7F4EE",
+  "accent": "#CD9F38",
+  "shadow": "0 6px 26px rgba(0,0,0,.45)",
+  "mark": "none",
+  "lit": "none",
+  "words": 2,
+  "chars": 14,
+  "lines": 2,
+  "position": 1470,
+  "margin": 108,
+  "align": "center",
+  "entrance": "none",
+  "css": ".cu .ln:first-child:not(:only-child){font:500 35px/1.8 Montserrat;letter-spacing:.32em;text-transform:uppercase;text-shadow:0 4px 17px rgba(0,0,0,.5)} .cu .w.m{font-style:italic} .cu .w{opacity:0}",
+  "word_motion": {
+   "tween": "fromTo",
+   "from": {
+    "opacity": 0,
+    "yPercent": 55,
+    "filter": "blur(8px)"
+   },
+   "vars": {
+    "opacity": 1,
+    "yPercent": 0,
+    "filter": "blur(0px)",
+    "duration": 0.5,
+    "ease": "expo.out"
+   }
+  }
+ },
+ "grade": "contrast(1.06) saturate(1.04)",
+ "motion": [
+  {
+   "on": "start",
+   "target": "footage",
+   "tween": "to",
+   "vars": {
+    "scale": 1.05,
+    "duration": 30,
+    "ease": "none",
+    "transformOrigin": "50% 35%"
+   }
+  }
+ ],
+ "pace": "wolne, powolny najazd zamiast cięć z uderzeniem",
+ "sound": "sam głos"
+}

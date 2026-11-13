@@ -1,0 +1,46 @@
+{
+ "name": "Jedno słowo",
+ "slug": "jedno-slowo",
+ "nkb": {
+  "kind": "captions",
+  "family": "dynamiczne",
+  "catalog": "napis-jedno-slowo"
+ },
+ "caption": {
+  "accent": "#CD9F38",
+  "position": 1470,
+  "margin": 60,
+  "align": "center",
+  "lines": 1,
+  "mark": "accent",
+  "lit": "none",
+  "entrance": "none",
+  "font": "Anton",
+  "weight": 400,
+  "size": 140,
+  "case": "upper",
+  "line_height": 1.0,
+  "color": "#FFFFFF",
+  "shadow": "0 14px 56px rgba(0,0,0,.45)",
+  "words": 1,
+  "chars": 30,
+  "motion": [
+   {
+    "target": "self",
+    "tween": "fromTo",
+    "from": {
+     "scale": 1.35,
+     "opacity": 0
+    },
+    "vars": {
+     "scale": 1,
+     "opacity": 1,
+     "duration": 0.22,
+     "ease": "power2.out"
+    }
+   }
+  ]
+ },
+ "pace": "jak w nagraniu, pauzy przycięte",
+ "sound": "sam głos"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "studio-contentu-nkb",
+  "displayName": "Studio Contentu NKB",
+  "version": "1.1.0",
+  "description": "Studio Contentu NKB: pomysły na treści i rolki (Veronica, Ashley), strategia contentu (Phoebe), hooki (Zoe), skrypty do rolek (Dorothy), podpisy na Instagram (Emily), karuzele, montaż rolek z wersjami do trial reels i b-rolle z długich nagrań. Wszystko po polsku, w głosie klientki. Stworzyły Ela Popardowska i Gosia Galbas, Nowoczesna Kobieta Biznesu.",
+  "author": {
+    "name": "Klub Nowoczesna Kobieta Biznesu",
+    "url": "https://github.com/nowoczesnakobietabiznesu"
+  },
+  "homepage": "https://github.com/nowoczesnakobietabiznesu/studio-contentu-nkb",
+  "repository": "https://github.com/nowoczesnakobietabiznesu/studio-contentu-nkb",
+  "license": "Proprietary"
+}

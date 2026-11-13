@@ -1,0 +1,18 @@
+[
+ {"layout": "hook", "class": "script",
+  "headline": "5 rzeczy, które\nchciałabym wiedzieć\nprzed [[startem]]",
+  "sub": "Zapisz na dni, kiedy wątpisz.",
+  "image": {"src": "{photo1}", "fit": "bleed", "face": "{face1}"},
+  "stickers": [{"type": "search", "text": "co chciałabym wiedzieć wcześniej", "button": true, "x": 50, "y": 46, "anchor": "top", "w": 640, "size": 30}]},
+ {"label": "Porada 01",
+  "headline": "Zacznij, zanim\npoczujesz się [[gotowa]]",
+  "items": ["Wybierz najmniejszą wersję, którą skończysz **w tym tygodniu.**", "Pokaż ją **trzem prawdziwym osobom.**", "Popraw to, na czym naprawdę się potknęły."],
+  "image": {"src": "{photo2}", "fit": "half", "side": "top", "share": 0.4, "face": "{face2}"}},
+ {"layout": "cta",
+  "class": "script",
+  "headline": "Chcesz [[całą listę?]]",
+  "keyword": "LISTA",
+  "keywordPost": "a wyślę Ci wszystkie 5.",
+  "follow": "Obserwuj {handle}, by nie przegapić kolejnych",
+  "image": {"src": "{photo3}", "fit": "bleed", "face": "{face3}"}}
+]

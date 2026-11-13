@@ -1,0 +1,59 @@
+{
+ "name": "Etykieta",
+ "slug": "etykieta",
+ "nkb": {
+  "kind": "captions",
+  "family": "wyraziste",
+  "catalog": "napis-etykieta"
+ },
+ "caption": {
+  "accent": "#CD9F38",
+  "position": 1470,
+  "margin": 86,
+  "align": "left",
+  "lines": 1,
+  "mark": "none",
+  "lit": "none",
+  "entrance": "fade",
+  "font": "Poppins",
+  "weight": 600,
+  "size": 64,
+  "line_height": 1.2,
+  "color": "#1E3E3A",
+  "shadow": false,
+  "words": 3,
+  "chars": 18,
+  "plate": {
+   "color": "#FFFFFF",
+   "radius": 22,
+   "pad": [
+    14,
+    30
+   ]
+  },
+  "stack": {
+   "keep": 2,
+   "gap": 22,
+   "dim": [
+    0.72
+   ],
+   "scale": [
+    1
+   ]
+  },
+  "motion": [
+   {
+    "target": "self",
+    "tween": "from",
+    "vars": {
+     "x": -60,
+     "duration": 0.35,
+     "ease": "power3.out"
+    }
+   }
+  ],
+  "css": ".cu .pl{box-shadow:0 28px 75px -38px rgba(0,0,0,.5)} .cu:has(.w.m) .pl{background:var(--acc)} .cu:has(.w.m) .w{color:#141414}"
+ },
+ "pace": "jak w nagraniu, pauzy przycięte",
+ "sound": "sam głos"
+}

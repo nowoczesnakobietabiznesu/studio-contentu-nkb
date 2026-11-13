@@ -1,0 +1,16 @@
+[
+ {"layout": "hook", "class": "low",
+  "headline": "5 rzeczy, które\nchciałabym wiedzieć\n[[wcześniej.]]",
+  "note": "Krótka lista,\nktórej nikt mi nie dał.",
+  "image": {"src": "{photo1}", "fit": "bleed", "face": "{face1}"}},
+ {"label": "Porada 01",
+  "headline": "zacznij, zanim\n[[poczujesz się gotowa.]]",
+  "items": ["Wybierz najmniejszą wersję, którą skończysz **w tym tygodniu.**", "Pokaż ją **trzem prawdziwym osobom.**", "Popraw to, na czym **naprawdę się potknęły.**"],
+  "image": {"src": "{photo2}", "fit": "half", "side": "top", "share": 0.4, "face": "{face2}"}},
+ {"layout": "cta", "class": "low",
+  "headline": "chcesz\n[[całą listę?]]",
+  "keyword": "LISTA",
+  "keywordPost": "a wyślę Ci wszystkie 5.",
+  "follow": "Obserwuj {handle}, by nie przegapić kolejnych",
+  "image": {"src": "{photo3}", "fit": "bleed", "face": "{face3}"}}
+]

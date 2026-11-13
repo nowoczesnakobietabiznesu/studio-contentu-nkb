@@ -1,0 +1,43 @@
+{
+ "name": "Nagłówek",
+ "slug": "naglowek",
+ "nkb": {
+  "kind": "captions",
+  "family": "dynamiczne",
+  "catalog": "napis-naglowek"
+ },
+ "caption": {
+  "accent": "#CD9F38",
+  "position": 1470,
+  "margin": 97,
+  "align": "left",
+  "lines": 1,
+  "mark": "accent",
+  "lit": "none",
+  "entrance": "none",
+  "font": "Playfair Display",
+  "weight": 900,
+  "size": 104,
+  "line_height": 0.98,
+  "color": "#FFFFFF",
+  "shadow": "0 14px 66px rgba(0,0,0,.4)",
+  "words": 2,
+  "chars": 13,
+  "css": ".cu .w.m{font-style:italic} .cu .w{opacity:0}",
+  "word_motion": {
+   "tween": "fromTo",
+   "from": {
+    "opacity": 0,
+    "yPercent": 35
+   },
+   "vars": {
+    "opacity": 1,
+    "yPercent": 0,
+    "duration": 0.3,
+    "ease": "power3.out"
+   }
+  }
+ },
+ "pace": "jak w nagraniu, pauzy przycięte",
+ "sound": "sam głos"
+}

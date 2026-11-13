@@ -1,0 +1,46 @@
+{
+ "name": "Viral",
+ "slug": "viral",
+ "nkb": {
+  "kind": "overall",
+  "catalog": "styl-viral",
+  "needs": [
+   "clean cutout (rvm_cut.py)"
+  ]
+ },
+ "caption": {
+  "font": "Inter Tight",
+  "weight": 800,
+  "size": 93,
+  "line_height": 1.0,
+  "tracking": -0.05,
+  "case": "lower",
+  "color": "#FFFFFF",
+  "accent": "#CD9F38",
+  "shadow": "0 10px 40px rgba(0,0,0,.55)",
+  "lit": "none",
+  "mark": "none",
+  "words": 3,
+  "chars": 16,
+  "lines": 1,
+  "position": 1470,
+  "margin": 108,
+  "align": "center",
+  "entrance": "word-by-word",
+  "word_motion": {
+   "tween": "fromTo",
+   "from": {
+    "filter": "blur(22px)"
+   },
+   "vars": {
+    "filter": "blur(0px)",
+    "duration": 0.2,
+    "ease": "power3.out"
+   }
+  },
+  "css": ".cu .w.m{display:none} .cu{word-spacing:.14em}"
+ },
+ "grade": "contrast(1.06) saturate(1.04)",
+ "pace": "jak w nagraniu, pauzy przycięte",
+ "sound": "sam głos"
+}

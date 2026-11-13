@@ -1,0 +1,15 @@
+{
+  "name": "nkb-klub",
+  "owner": {
+    "name": "Klub Nowoczesna Kobieta Biznesu",
+    "url": "https://github.com/nowoczesnakobietabiznesu"
+  },
+  "description": "Narzędzia Claude dla Klubu Nowoczesna Kobieta Biznesu.",
+  "plugins": [
+    {
+      "name": "studio-contentu-nkb",
+      "source": "./studio-contentu-nkb",
+      "description": "Studio Contentu NKB: pomysły na treści i rolki, skrypty, hooki, podpisy na Instagram, strategia contentu, karuzele, montaż rolek z wersjami do trial reels i b-rolle z długich nagrań. Wszystko po polsku, w głosie klientki."
+    }
+  ]
+}

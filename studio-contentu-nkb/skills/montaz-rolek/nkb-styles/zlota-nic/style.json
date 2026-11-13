@@ -1,0 +1,16 @@
+{
+ "name": "Złota nić",
+ "slug": "zlota-nic",
+ "nkb": {"kind": "captions", "family": "wyraziste", "catalog": "napis-zlota-nic"},
+ "caption": {
+  "font": "Poppins", "weight": 700, "size": 86, "line_height": 1.15,
+  "case": "as-typed", "color": "#FFFFFF", "accent": "#CD9F38",
+  "shadow": "0 9px 38px rgba(0,0,0,.45)",
+  "lit": "color", "mark": "none",
+  "words": 3, "chars": 18, "lines": 1,
+  "position": 1470, "margin": 108, "align": "center",
+  "entrance": "none"
+ },
+ "pace": "jak w nagraniu, pauzy przycięte",
+ "sound": "sam głos"
+}

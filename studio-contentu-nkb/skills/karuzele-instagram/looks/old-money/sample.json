@@ -1,0 +1,24 @@
+[
+ {
+  "layout": "hook",
+  "label": "List do młodszej siebie",
+  "headline": "((5 rzeczy, które))\nchciałabym wiedzieć wcześniej",
+  "sub": "Lekcje, które oszczędziłyby mi rok. Zachowaj to.",
+  "image": {"src": "{photo1}", "fit": "bleed", "face": "{face1}"}
+ },
+ {
+  "label": "Lekcja pierwsza",
+  "headline": "((Zacznij, zanim))\npoczujesz się gotowa",
+  "image": {"src": "{photo2}", "fit": "half", "side": "top", "share": 0.46, "focus": "50% 16%", "face": "{face2}"},
+  "items": ["Gotowość to uczucie, które nigdy nie przychodzi.", "Pierwsza wersja ma prawo być surowa.", "Rozpęd wygrywa z idealnym planem."]
+ },
+ {
+  "layout": "cta",
+  "class": "wine",
+  "headline": "((Chcesz))\ncałą listę?",
+  "photos": {"layout": "stack", "list": [{"src": "{photo3}", "focus": "50% 22%"}, {"src": "{photo1}", "focus": "50% 22%"}]},
+  "keyword": "LISTA",
+  "keywordPost": "a wyślę Ci wszystkie 5 lekcji.",
+  "follow": "Obserwuj {handle}, by nie przegapić kolejnych"
+ }
+]

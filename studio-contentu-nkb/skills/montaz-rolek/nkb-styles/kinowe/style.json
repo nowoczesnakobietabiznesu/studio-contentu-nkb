@@ -1,0 +1,29 @@
+{
+ "name": "Kinowe",
+ "slug": "kinowe",
+ "nkb": {
+  "kind": "captions",
+  "family": "spokojne",
+  "catalog": "napis-kinowe"
+ },
+ "caption": {
+  "accent": "#CD9F38",
+  "position": 1470,
+  "margin": 108,
+  "align": "center",
+  "lines": 1,
+  "mark": "none",
+  "lit": "none",
+  "entrance": "none",
+  "font": "Poppins",
+  "weight": 400,
+  "size": 58,
+  "line_height": 1.4,
+  "color": "#FFFFFF",
+  "shadow": "0 5px 14px rgba(0,0,0,.75)",
+  "words": 5,
+  "chars": 27
+ },
+ "pace": "jak w nagraniu, pauzy przycięte",
+ "sound": "sam głos"
+}

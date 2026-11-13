@@ -1,0 +1,35 @@
+{
+ "name": "Obrys",
+ "slug": "obrys",
+ "nkb": {
+  "kind": "captions",
+  "family": "wyraziste",
+  "catalog": "napis-obrys"
+ },
+ "caption": {
+  "accent": "#CD9F38",
+  "position": 1470,
+  "margin": 108,
+  "align": "center",
+  "lines": 1,
+  "mark": "none",
+  "lit": "color",
+  "entrance": "none",
+  "font": "Poppins",
+  "weight": 900,
+  "size": 88,
+  "case": "upper",
+  "line_height": 1.05,
+  "color": "#FFFFFF",
+  "stroke": {
+   "color": "#FFFFFF",
+   "width": 6
+  },
+  "shadow": false,
+  "words": 3,
+  "chars": 14,
+  "css": ".cu .w{color:transparent}"
+ },
+ "pace": "jak w nagraniu, pauzy przycięte",
+ "sound": "sam głos"
+}

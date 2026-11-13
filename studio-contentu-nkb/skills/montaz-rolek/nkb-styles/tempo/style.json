@@ -1,0 +1,73 @@
+{
+ "name": "Tempo",
+ "slug": "tempo",
+ "nkb": {
+  "kind": "overall",
+  "catalog": "styl-tempo",
+  "tag": "Szybko i do rzeczy"
+ },
+ "caption": {
+  "accent": "#CD9F38",
+  "position": 1470,
+  "margin": 60,
+  "align": "center",
+  "lines": 1,
+  "mark": "accent",
+  "lit": "none",
+  "entrance": "none",
+  "font": "Anton",
+  "weight": 400,
+  "size": 140,
+  "case": "upper",
+  "line_height": 1.0,
+  "color": "#FFFFFF",
+  "shadow": "0 14px 56px rgba(0,0,0,.45)",
+  "words": 1,
+  "chars": 30,
+  "motion": [
+   {
+    "target": "self",
+    "tween": "fromTo",
+    "from": {
+     "scale": 1.35,
+     "opacity": 0
+    },
+    "vars": {
+     "scale": 1,
+     "opacity": 1,
+     "duration": 0.22,
+     "ease": "power2.out"
+    }
+   }
+  ]
+ },
+ "grade": "contrast(1.16) saturate(1.18)",
+ "motion": [
+  {
+   "on": "cuts",
+   "target": "#root",
+   "tween": "fromTo",
+   "from": {
+    "filter": "brightness(1.7)"
+   },
+   "vars": {
+    "filter": "brightness(1)",
+    "duration": 0.18
+   }
+  },
+  {
+   "on": "marks",
+   "target": "footage",
+   "tween": "to",
+   "vars": {
+    "scale": 1.07,
+    "duration": 0.1,
+    "yoyo": true,
+    "repeat": 1,
+    "transformOrigin": "50% 35%"
+   }
+  }
+ ],
+ "pace": "szybkie: pauzy do 0,1 s, zbliżenie (zoom 1.2–1.3) co drugie cięcie w edl.json",
+ "sound": "szum przejścia przy cięciach"
+}

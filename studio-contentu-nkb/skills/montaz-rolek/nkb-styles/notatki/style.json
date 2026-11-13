@@ -1,0 +1,49 @@
+{
+ "name": "Notatki",
+ "slug": "notatki",
+ "nkb": {
+  "kind": "captions",
+  "family": "edytorskie",
+  "catalog": "napis-notatki"
+ },
+ "caption": {
+  "accent": "#CD9F38",
+  "position": 1470,
+  "margin": 108,
+  "align": "center",
+  "lines": 1,
+  "mark": "none",
+  "lit": "none",
+  "entrance": "none",
+  "font": "Caveat",
+  "weight": 700,
+  "size": 108,
+  "line_height": 1.05,
+  "color": "#FFFFFF",
+  "shadow": "0 9px 28px rgba(0,0,0,.45)",
+  "words": 3,
+  "chars": 18,
+  "css": ".cu .w.m{background:linear-gradient(var(--acc),var(--acc)) no-repeat 0 94%/0% 12px;padding-bottom:.08em} .cu .w{opacity:0}",
+  "word_motion": {
+   "tween": "fromTo",
+   "from": {
+    "opacity": 0
+   },
+   "vars": {
+    "opacity": 1,
+    "duration": 0.15,
+    "ease": "power1.out"
+   }
+  },
+  "mark_motion": {
+   "tween": "to",
+   "vars": {
+    "backgroundSize": "100% 12px",
+    "duration": 0.5,
+    "ease": "power2.out"
+   }
+  }
+ },
+ "pace": "jak w nagraniu, pauzy przycięte",
+ "sound": "sam głos"
+}

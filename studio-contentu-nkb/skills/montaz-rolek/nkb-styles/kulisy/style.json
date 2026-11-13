@@ -1,0 +1,39 @@
+{
+ "name": "Kulisy",
+ "slug": "kulisy",
+ "nkb": {
+  "kind": "overall",
+  "catalog": "styl-kulisy",
+  "tag": "Bez pokazywania twarzy"
+ },
+ "caption": {
+  "accent": "#CD9F38",
+  "position": 1470,
+  "margin": 108,
+  "align": "center",
+  "lines": 1,
+  "mark": "accent",
+  "lit": "none",
+  "entrance": "type-on",
+  "font": "JetBrains Mono",
+  "weight": 500,
+  "size": 56,
+  "line_height": 1.4,
+  "color": "#F8F3EA",
+  "shadow": false,
+  "words": 4,
+  "chars": 22,
+  "plate": {
+   "color": "rgba(30,62,58,.92)",
+   "radius": 8,
+   "pad": [
+    19,
+    35
+   ]
+  },
+  "css": ".cu .pl::after{content:'\\258D';color:var(--acc);margin-left:.08em}"
+ },
+ "grade": "sepia(.16) saturate(1.06) contrast(1.02)",
+ "pace": "średnie, przebitka co 2–3 s",
+ "sound": "ciche stukanie klawiatury, szum tła"
+}

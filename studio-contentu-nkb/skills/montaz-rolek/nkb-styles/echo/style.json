@@ -1,0 +1,46 @@
+{
+ "name": "Echo",
+ "slug": "echo",
+ "nkb": {
+  "kind": "captions",
+  "family": "dynamiczne",
+  "catalog": "napis-echo"
+ },
+ "caption": {
+  "accent": "#CD9F38",
+  "position": 1470,
+  "margin": 108,
+  "align": "center",
+  "lines": 1,
+  "mark": "none",
+  "lit": "none",
+  "entrance": "none",
+  "font": "Playfair Display",
+  "weight": 800,
+  "italic": true,
+  "size": 92,
+  "line_height": 1.12,
+  "color": "#FFFFFF",
+  "shadow": "0.07em 0.07em 0 color-mix(in srgb,var(--acc) 80%,transparent)",
+  "words": 3,
+  "chars": 16,
+  "css": ".cu .w{opacity:0}",
+  "word_motion": {
+   "tween": "fromTo",
+   "from": {
+    "opacity": 0,
+    "x": -10,
+    "y": -10
+   },
+   "vars": {
+    "opacity": 1,
+    "x": 0,
+    "y": 0,
+    "duration": 0.45,
+    "ease": "power2.out"
+   }
+  }
+ },
+ "pace": "jak w nagraniu, pauzy przycięte",
+ "sound": "sam głos"
+}

@@ -1,0 +1,5 @@
+[
+ {"layout": "hook", "label": "Lista na start", "headline": "5 rzeczy, które\n[[chciałabym wiedzieć]]\nprzed startem", "sub": "Krótka lista, której nikt mi nie dał."},
+ {"label": "Porada 01", "ghost": "01", "headline": "Zacznij, zanim\n[[poczujesz się gotowa.]]", "sub": "Gotowość to uczucie, które przychodzi [[po]] starcie, nie przed nim.", "items": ["Wybierz najmniejszą wersję, którą skończysz **w tym tygodniu.**", "Pokaż ją **trzem prawdziwym osobom.**", "Popraw to, na czym **naprawdę się potknęły.**"], "callout": "Zrobione i pokazane wygrywa z idealnym i schowanym."},
+ {"headline": "Chcesz\n[[całą listę?]]", "sub": "Zapisz to. Potem skomentuj słowo poniżej.", "keyword": "LISTA", "keywordPost": "a wyślę Ci wszystkie 5."}
+]

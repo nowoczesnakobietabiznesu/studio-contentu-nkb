@@ -1,0 +1,44 @@
+{
+ "name": "Duet",
+ "slug": "duet",
+ "nkb": {
+  "kind": "captions",
+  "family": "edytorskie",
+  "catalog": "napis-duet"
+ },
+ "caption": {
+  "accent": "#CD9F38",
+  "position": 1470,
+  "margin": 108,
+  "align": "center",
+  "lines": 2,
+  "mark": "none",
+  "lit": "none",
+  "entrance": "none",
+  "font": "Playfair Display",
+  "weight": 700,
+  "italic": true,
+  "size": 100,
+  "line_height": 1.02,
+  "color": "#FFFFFF",
+  "shadow": "0 9px 47px rgba(0,0,0,.35)",
+  "words": 2,
+  "chars": 14,
+  "css": ".cu .ln:first-child:not(:only-child){font:500 46px/1.6 Poppins;letter-spacing:.2em;text-transform:uppercase;text-shadow:0 5px 28px rgba(0,0,0,.5)} .cu .ln:last-child .w{color:var(--acc)} .cu .w{opacity:0}",
+  "word_motion": {
+   "tween": "fromTo",
+   "from": {
+    "opacity": 0,
+    "y": 18
+   },
+   "vars": {
+    "opacity": 1,
+    "y": 0,
+    "duration": 0.3,
+    "ease": "power2.out"
+   }
+  }
+ },
+ "pace": "jak w nagraniu, pauzy przycięte",
+ "sound": "sam głos"
+}

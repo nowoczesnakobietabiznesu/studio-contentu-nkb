@@ -1,0 +1,38 @@
+{
+ "name": "Maszynopis",
+ "slug": "maszynopis",
+ "nkb": {
+  "kind": "captions",
+  "family": "dynamiczne",
+  "catalog": "napis-maszynopis"
+ },
+ "caption": {
+  "accent": "#CD9F38",
+  "position": 1470,
+  "margin": 108,
+  "align": "center",
+  "lines": 1,
+  "mark": "accent",
+  "lit": "none",
+  "entrance": "type-on",
+  "font": "JetBrains Mono",
+  "weight": 500,
+  "size": 56,
+  "line_height": 1.4,
+  "color": "#F8F3EA",
+  "shadow": false,
+  "words": 4,
+  "chars": 22,
+  "plate": {
+   "color": "rgba(30,62,58,.92)",
+   "radius": 8,
+   "pad": [
+    19,
+    35
+   ]
+  },
+  "css": ".cu .pl::after{content:'\\258D';color:var(--acc);margin-left:.08em}"
+ },
+ "pace": "jak w nagraniu, pauzy przycięte",
+ "sound": "sam głos"
+}

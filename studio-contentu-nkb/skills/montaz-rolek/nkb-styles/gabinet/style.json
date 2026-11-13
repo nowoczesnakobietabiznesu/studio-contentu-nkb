@@ -1,0 +1,43 @@
+{
+ "name": "Gabinet",
+ "slug": "gabinet",
+ "nkb": {
+  "kind": "captions",
+  "family": "edytorskie",
+  "catalog": "napis-gabinet"
+ },
+ "caption": {
+  "accent": "#CD9F38",
+  "position": 1470,
+  "margin": 108,
+  "align": "center",
+  "lines": 1,
+  "mark": "accent",
+  "lit": "none",
+  "entrance": "none",
+  "font": "Poppins",
+  "weight": 500,
+  "size": 52,
+  "tracking": 0.16,
+  "case": "upper",
+  "line_height": 1.5,
+  "color": "#FFFFFF",
+  "shadow": "0 5px 28px rgba(0,0,0,.5)",
+  "words": 3,
+  "chars": 20,
+  "dy": -44,
+  "css": ".cu .w.m{font-family:'Playfair Display';font-style:italic;font-weight:500;font-size:1.8em;letter-spacing:0;text-transform:none;line-height:1} .cu .w{opacity:0}",
+  "word_motion": {
+   "tween": "fromTo",
+   "from": {
+    "opacity": 0
+   },
+   "vars": {
+    "opacity": 1,
+    "duration": 0.3
+   }
+  }
+ },
+ "pace": "jak w nagraniu, pauzy przycięte",
+ "sound": "sam głos"
+}
