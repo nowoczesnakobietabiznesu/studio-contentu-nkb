@@ -45,6 +45,8 @@ Spokojne: `kinowe`, `szept`, `cytat`, `szklo`, `kadr`. Wyraziste: `zlota-nic`, `
   family has none (Permanent Marker, Lobster Two, Elsie Swash Caps): then pick the nearest face that has them and tell
   the buyer which face stands in.
 - The accent is `var(--acc)` in every style's css and layers: changing `caption.accent` recolours all of it.
+  Except a style with `"fixedColours": true` in its `nkb` block (Yapping): its colours are written out, the brand
+  colour is never used in it, and `my_styles.py` ignores `--accent` for it.
 - Text on screen is only the buyer's own words or a generic placeholder. No invented step counts, issue numbers,
   logos or data.
 - Styles that need the clean cutout: run `rvm_cut.py` before the build (`references/checks.md`).

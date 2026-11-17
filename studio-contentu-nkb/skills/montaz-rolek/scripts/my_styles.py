@@ -202,7 +202,10 @@ def cmd_save(args):
             if preset.get(k) not in (None, '', [], {}):
                 spec[k] = preset[k]
                 took.append(k)
-        if '--accent' in args:                       # the buyer's brand colour instead of the NKB gold
+        fixed = bool((preset.get('nkb') or {}).get('fixedColours'))
+        if '--accent' in args and fixed:             # e.g. Yapping: cream and mint, the brand colour never replaces them
+            print(f'note: {preset.get("name") or key} has fixed colours, so the brand colour is not applied to it.')
+        elif '--accent' in args:                     # the buyer's brand colour instead of the NKB gold
             acc = args[args.index('--accent') + 1]
             if isinstance(spec.get('caption'), dict):
                 spec['caption']['accent'] = acc

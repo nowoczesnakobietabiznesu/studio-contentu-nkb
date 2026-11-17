@@ -181,38 +181,77 @@ klientka MÓWI albo który komentuje jej słowa („za darmo!” przy „darmowy
 ```'''},
 
  'yapping': {
-  'name': 'Yapping', 'tag': 'Krem, mięta i mieszane kroje',
+  'name': 'Yapping', 'tag': 'Krem, mięta i mieszane kroje', 'fixed': True,
   'caption': {'font': 'Instrument Serif', 'weight': 400, 'size': 56, 'line_height': 1.0, 'color': '#F4F1EA',
               'accent': '#D8FBE7', 'shadow': '0 3px 15px rgba(0,0,0,.4)', 'mark': 'none', 'lit': 'none',
               'words': 1, 'chars': 30, 'lines': 1, 'position': 845, 'margin': 80, 'align': 'left',
               'entrance': 'none', 'avoid_face': False},
   'grade': 'contrast(.97) brightness(1.02)',
+  # the five compositions of the catalog card (picker/nkb.html, .yp-*), in px on the 1080x1920 frame; every reel
+  # only writes the html of a layer with these classes, so the look cannot drift from the catalog
+  'css': (".yp-t{position:absolute;left:0;right:0;top:326px;text-align:center;font:400 162px/1 'Instrument Serif';"
+          "color:#FCF5BC;text-shadow:0 4px 22px rgba(0,0,0,.25)}"
+          ".yp-t.piers{top:1190px;font-size:128px}"
+          ".yp-c{position:absolute;left:54px;right:54px;top:1170px;text-align:center;display:grid;gap:11px}"
+          ".yp-c span{font:400 82px/1.05 'Rubik Mono One';color:#FCF5BC;text-shadow:0 4px 17px rgba(0,0,0,.25);"
+          "min-height:1.05em}"
+          ".yp-c .mint{color:#D8FBE7}"
+          ".yp-card{position:absolute;left:151px;right:151px;top:1133px;background:#fff;border-radius:24px;"
+          "padding:26px 35px;transform:rotate(-2deg);box-shadow:0 17px 43px -17px rgba(0,0,0,.45);"
+          "font:700 50px/1.2 'Poppins';color:#141414;display:grid;gap:9px}"
+          ".yp-card small{font:500 28px/1 'Poppins';color:#8a8f98}"
+          ".yp-brush{position:absolute;left:0;right:0;top:1152px;text-align:center;font:400 130px/1 'Caveat Brush';"
+          "color:#D8FBE7;transform:rotate(-4deg);text-shadow:0 5px 19px rgba(0,0,0,.3)}"
+          ".yp-note{position:absolute;left:0;right:0;top:1334px;text-align:center;font:400 54px/1.2 'Patrick Hand';"
+          "color:#F4F1EA;text-shadow:0 4px 15px rgba(0,0,0,.4)}"
+          ".yp-c i,.yp-card i,.yp-c b,.yp-card b{font-style:normal;font-weight:inherit}"),
   'pace': 'cięcia zdanie po zdaniu (1–2,3 s), przy każdym cięciu inna wielkość kadru: 1.0 / 1.3 / 1.7 przy planie '
           'średnim, 1.0 / 1.12 / 1.25 przy bliskim ujęciu (głowa nigdy nie wychodzi poza kadr, sprawdź check.jpg)',
   'sound': 'sam głos, 3–4 ciche dzwonki na nagrodę, ciche stukanie pod pisanym tekstem',
-  'md': ['Type: bieżące słowo Instrument Serif 56 px z lewej (x 80, y 845), zawsze na wierzchu.',
-         'Colour: naturalny, krem #FCF5BC i mięta #D8FBE7 na zmianę w kompozycjach.',
-         'Kompozycje (warstwy na rolkę): tytuł szeryfem za głową, grube kapitaliki Rubik Mono One pisane litera po '
-         'literze, białe karty, pędzel Caveat Brush, odręczne dopiski Patrick Hand.',
-         'Kolory stałe (krem i mięta): kolor marki ich nie zmienia.',
-         'Needs: wycięcie postaci (rvm_cut.py) tylko wtedy, gdy któraś kompozycja idzie za głowę.'],
-  'graphics': '''Jedna kompozycja naraz, z jej słów. Tytuł z hooka za głową od 0 s, tylko gdy nad głową jest miejsce
-(plan średni: w layout.json głowa zaczyna się niżej niż y 400). Przy bliskim ujęciu głowa zasłoni tytuł: daj go
-wtedy na pierś ("anchor": "full", top około 1190px, 128px) i nie licz wycięcia postaci:
+  'md': ['Napisy: zawsze JEDNO bieżące słowo, Instrument Serif 56 px, kremowe #F4F1EA, z lewej (x 80, y 845), '
+         'bez podświetleń. Nigdy całe zdania na środku kadru i nigdy pochylone słowa w innym kolorze.',
+         'Kolory stałe: krem #FCF5BC, mięta #D8FBE7, biel #F4F1EA. Kolor marki klientki NIE pojawia się nigdzie '
+         '(ani w napisach, ani w kompozycjach, ani na storyboardzie).',
+         'Kompozycje: tylko pięć z katalogu, jedna naraz, 1 do 4 słów z jej zdania: tytuł szeryfem za głową (yp-t), '
+         'grube kapitaliki Rubik Mono One pisane litera po literze (yp-c), biała karta (yp-card), pędzel Caveat Brush '
+         '(yp-brush), odręczny dopisek Patrick Hand (yp-note). Ich wygląd jest już w stylu (css): piszesz tylko html.',
+         'Needs: wycięcie postaci (rvm_cut.py) tylko wtedy, gdy tytuł idzie za głowę.'],
+  'graphics': '''Wygląd pięciu kompozycji jest gotowy w stylu (klasy yp-t, yp-c, yp-card, yp-brush, yp-note). W plan.json
+każdej rolki piszesz tylko warstwy z html i czasem, z jej słów. NIE dopisuj własnego css do tych klas, NIE zmieniaj
+krojów, kolorów ani miejsc, NIE wymyślaj innych kompozycji. Jedna kompozycja naraz, a między nimi samo bieżące słowo.
+Rytm jak w katalogu: tytuł na hook, potem kapitaliki, karta, pędzel z dopiskiem na końcu. W dłuższej rolce
+kapitaliki i karty wracają na kolejne ważne zdania (co 2 do 4 zdań), a reszta rolki to samo bieżące słowo.
+
+1. Tytuł z hooka (2 do 4 słów) za głową od 0 s, tylko gdy nad głową jest miejsce (plan średni: w layout.json głowa
+   zaczyna się niżej niż y 400). Przy bliskim ujęciu daj go na pierś: klasa "yp-t piers", "anchor": "full", bez
+   wycięcia postaci.
 ```json
-{"id": "tytul", "anchor": "behind", "from": 0, "to": 2.45, "html": "<div class='yp-t'>Resztę zasad</div>",
- "css": ".yp-t{position:absolute;left:0;right:0;top:326px;text-align:center;font:400 162px/1 'Instrument Serif';color:#FCF5BC;text-shadow:0 4px 22px rgba(0,0,0,.25)}"}
+{"id": "tytul", "anchor": "behind", "from": 0, "to": 2.45, "html": "<div class='yp-t'>Resztę zasad</div>"}
 ```
-Grube kapitaliki na piersi (krem / mięta na zmianę), litery pisane jedna po drugiej (1 znak na klatkę) od słowa:
+2. Kapitaliki na piersi: 1 do 2 linijek po 1 do 2 słowa, krem i mięta na zmianę, litery pisane jedna po drugiej
+   od chwili, gdy pada słowo (bez przecinków: krój o stałej szerokości robi z przecinka przerwę "TO ,").
 ```json
 {"id": "kaps1", "anchor": "full", "from": 2.4, "to": 3.76,
- "html": "<div class='yp-c'><span>W <b class='t1'><i class='ch'>D</i><i class='ch'>A</i>...</b></span><span class='mint'>...</span></div>",
- "css": ".yp-c{position:absolute;left:54px;right:54px;top:1170px;text-align:center;display:grid;gap:11px}.yp-c span{font:400 82px/1.05 'Rubik Mono One';color:#FCF5BC}.yp-c .mint{color:#D8FBE7}.yp-c i{font-style:normal}",
- "motion": [{"target": ".t1 .ch", "tween": "fromTo", "at": 0.1, "from": {"opacity": 0}, "vars": {"opacity": 1, "duration": 0.01, "stagger": 0.033}}]}
+ "html": "<div class='yp-c'><span>W <b class='t1'><i class='ch'>D</i><i class='ch'>A</i><i class='ch'>R</i></b></span><span class='mint'><b class='t2'><i class='ch'>P</i><i class='ch'>O</i></b></span></div>",
+ "motion": [{"target": ".t1 .ch", "tween": "fromTo", "at": 0.1, "from": {"opacity": 0}, "vars": {"opacity": 1, "duration": 0.01, "stagger": 0.033}},
+            {"target": ".t2 .ch", "tween": "fromTo", "at": 0.54, "from": {"opacity": 0}, "vars": {"opacity": 1, "duration": 0.01, "stagger": 0.033}}]}
 ```
-Białe karty (szary podpis + pogrubiony tekst, obrót -2°), pędzel i dopiski: wzór w katalogu (SK/picker/nkb.html,
-karta Yapping). Kapitaliki Rubik Mono One bez przecinków (krój o stałej szerokości robi z przecinka przerwę: "TO ,")
-i poniżej brody (top 1170 do 1250px przy bliskim ujęciu).'''},
+3. Biała karta (szary podpis + pogrubione słowo pisane litera po literze), na wezwanie do działania albo nazwę:
+```json
+{"id": "karta", "anchor": "full", "from": 3.78, "to": 5.14,
+ "html": "<div class='yp-card'><small>Skomentuj:</small><b class='t1'><i class='ch'>p</i><i class='ch'>r</i></b></div>",
+ "motion": [{"target": ".t1 .ch", "tween": "fromTo", "at": 0.6, "from": {"opacity": 0}, "vars": {"opacity": 1, "duration": 0.01, "stagger": 0.033}}]}
+```
+4. Pędzel na puentę (2 do 3 słów), mięta, do końca rolki, a pod nim 5. odręczny dopisek pół sekundy później:
+```json
+{"id": "pedzel", "anchor": "full", "from": 5.18, "to": 99, "html": "<div class='yp-brush'>wyślę Ci go.</div>"}
+{"id": "dopisek", "anchor": "full", "from": 5.7, "to": 99, "html": "<div class='yp-note'>👉 sprawdź wiadomości</div>"}
+```
+Linijka kapitalików ma najwyżej 10 znaków (inaczej wchodzi pod przyciski Instagrama); dłuższe słowo daj na kartę.
+
+Storyboard i podgląd: klatki z silnika (build_reel.py --safe, potem hf.py snapshot), nigdy rysowane ręcznie. Zanim
+je pokażesz, porównaj z kartą Yapping w katalogu (picker/nkb.html): jedno słowo z lewej, krem i mięta, mieszane
+kroje. Coś wygląda inaczej? Popraw plan.json, zanim pokażesz.'''},
 }
 
 for key, st in STYLES.items():
@@ -220,6 +259,8 @@ for key, st in STYLES.items():
     os.makedirs(d, exist_ok=True)
     out = {'name': st['name'], 'slug': key, 'nkb': {'kind': 'overall', 'catalog': 'styl-' + key, 'tag': st['tag']},
            'caption': st['caption']}
+    if st.get('fixed'):                       # fixed colours: the buyer's brand colour never replaces them
+        out['nkb']['fixedColours'] = True
     for k in ('grade', 'css', 'layers', 'motion'):
         if st.get(k):
             out[k] = st[k]
@@ -231,7 +272,7 @@ for key, st in STYLES.items():
     md = (f"# {st['name']} (styl całościowy NKB)\n\nZ katalogu stylów NKB: {st['tag']}.\n\n"
           + ''.join(f'- {line}\n' for line in st['md'])
           + f"- Pace: {st['pace']}.\n- Sound: {st['sound']}.\n"
-          + ('' if key == 'yapping' else
+          + ('' if st.get('fixed') else
              f"- Akcent = kolor marki klientki (domyślnie złoto NKB {ACC}); w css i warstwach var(--acc).\n")
           + "\n## Graphic elements (piszesz je w plan.json każdej rolki, z jej słów)\n"
           + st['graphics'] + '\n\n## Standing notes\n- Tekst na ekranie: tylko słowa klientki albo ogólny zamiennik.\n')

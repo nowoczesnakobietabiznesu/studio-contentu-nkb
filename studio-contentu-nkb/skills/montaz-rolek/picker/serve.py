@@ -628,8 +628,12 @@ class Handler(BaseHTTPRequestHandler):
                 return self.fail(400, 'The brand colour must look like #CD9F38.')
             preset = read_json(os.path.join(NKB_STYLES, key, 'style.json'), {}) or {}
             kind = (preset.get('nkb') or {}).get('kind') or 'overall'
-            pick = {'key': key, 'name': str(preset.get('name') or key), 'kind': kind, 'accent': accent.upper(),
+            fixed = bool((preset.get('nkb') or {}).get('fixedColours'))     # e.g. Yapping: the brand colour stays out
+            pick = {'key': key, 'name': str(preset.get('name') or key), 'kind': kind,
+                    'accent': None if fixed else accent.upper(),
                     'updated': datetime.datetime.now(datetime.timezone.utc).replace(microsecond=0).isoformat()}
+            if fixed:
+                pick['fixedColours'] = True
             out = nkb_pick_path(self.server.config)
             try:
                 with self.server.write_lock:
@@ -643,7 +647,7 @@ class Handler(BaseHTTPRequestHandler):
                 return self.fail(500, 'Could not write the pick.')
             self.server.seen()
             say('STATUS nkb SAVED %s kind=%s key=%s accent=%s effects=%s' % (
-                out, kind, key, pick['accent'],
+                out, kind, key, pick['accent'] or 'fixed',
                 'unchanged' if fx is None else (','.join(pick['effects']) or 'auto')))
             return self.send_json(200, {'ok': True, 'pick': pick})
         if path == '/api/bye':
@@ -694,8 +698,10 @@ def main(argv=None):
     if not os.path.isfile(os.path.join(HERE, 'nkb.html')):
         warn('nkb.html is missing beside serve.py')
         return 2
-    if not os.path.isfile(captions_json):
-        warn('caption styles not found at %s (the page will open with no caption styles)' % captions_json)
+    # NKB: the 20 caption styles live inside nkb.html and nkb-styles/, not in a captions/styles.json file, so a
+    # missing file is normal and says nothing. Warn only when someone points --captions at a file that is not there.
+    if args.captions != DEFAULT_CAPTIONS and not os.path.isfile(captions_json):
+        warn('the --captions file was not found at %s' % captions_json)
     try:
         server = bind(args.port, config, captions_json, args.verbose, args.keep_alive,
                       os.path.abspath(os.path.expanduser(args.styles)))

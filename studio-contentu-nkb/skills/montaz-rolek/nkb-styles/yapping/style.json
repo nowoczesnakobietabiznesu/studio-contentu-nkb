@@ -4,7 +4,8 @@
  "nkb": {
   "kind": "overall",
   "catalog": "styl-yapping",
-  "tag": "Krem, mięta i mieszane kroje"
+  "tag": "Krem, mięta i mieszane kroje",
+  "fixedColours": true
  },
  "caption": {
   "font": "Instrument Serif",
@@ -26,6 +27,7 @@
   "avoid_face": false
  },
  "grade": "contrast(.97) brightness(1.02)",
+ "css": ".yp-t{position:absolute;left:0;right:0;top:326px;text-align:center;font:400 162px/1 'Instrument Serif';color:#FCF5BC;text-shadow:0 4px 22px rgba(0,0,0,.25)}.yp-t.piers{top:1190px;font-size:128px}.yp-c{position:absolute;left:54px;right:54px;top:1170px;text-align:center;display:grid;gap:11px}.yp-c span{font:400 82px/1.05 'Rubik Mono One';color:#FCF5BC;text-shadow:0 4px 17px rgba(0,0,0,.25);min-height:1.05em}.yp-c .mint{color:#D8FBE7}.yp-card{position:absolute;left:151px;right:151px;top:1133px;background:#fff;border-radius:24px;padding:26px 35px;transform:rotate(-2deg);box-shadow:0 17px 43px -17px rgba(0,0,0,.45);font:700 50px/1.2 'Poppins';color:#141414;display:grid;gap:9px}.yp-card small{font:500 28px/1 'Poppins';color:#8a8f98}.yp-brush{position:absolute;left:0;right:0;top:1152px;text-align:center;font:400 130px/1 'Caveat Brush';color:#D8FBE7;transform:rotate(-4deg);text-shadow:0 5px 19px rgba(0,0,0,.3)}.yp-note{position:absolute;left:0;right:0;top:1334px;text-align:center;font:400 54px/1.2 'Patrick Hand';color:#F4F1EA;text-shadow:0 4px 15px rgba(0,0,0,.4)}.yp-c i,.yp-card i,.yp-c b,.yp-card b{font-style:normal;font-weight:inherit}",
  "pace": "cięcia zdanie po zdaniu (1–2,3 s), przy każdym cięciu inna wielkość kadru: 1.0 / 1.3 / 1.7 przy planie średnim, 1.0 / 1.12 / 1.25 przy bliskim ujęciu (głowa nigdy nie wychodzi poza kadr, sprawdź check.jpg)",
  "sound": "sam głos, 3–4 ciche dzwonki na nagrodę, ciche stukanie pod pisanym tekstem"
 }

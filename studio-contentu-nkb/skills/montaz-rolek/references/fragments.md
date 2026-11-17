@@ -16,10 +16,13 @@ The picker is skipped too often for reasons that do not count. None of these ski
 - One clip, one take, nothing said twice. She still drops lines and changes their order on the page.
 - A concept or b-roll plan was agreed, or she wrote "użyj koncepcji i zmontuj", "działaj", "edytuj".
 - The reel is long, or you are sure which lines are best.
+- She asked for a storyboard ("pokaż storyboard", "zrób najpierw storyboard", "chcę zobaczyć plan"). The picker
+  comes first, the storyboard shows the cut made from her ticks (SKILL.md, "Storyboard"). Only when she also
+  asks you to choose the fragments ("zrób storyboard i sam wybierz najlepsze fragmenty") is it `--auto buyer`.
 
 Only two things skip it, and both are recorded:
 ```
-PY "SK/scripts/fragments.py" "<project>" --auto buyer        she said "wybierz sam" / "nie chcę wybierać" in this edit
+PY "SK/scripts/fragments.py" "<project>" --auto buyer        she said "wybierz sam" / "nie chcę wybierać" / "sam wybierz najlepsze fragmenty" in this edit
 PY "SK/scripts/fragments.py" "<project>" --auto no-browser   the page cannot open on this computer
 ```
 Both write `fragments.json` with `"by": "claude"` and the pre-ticked lines, and you pick the takes as

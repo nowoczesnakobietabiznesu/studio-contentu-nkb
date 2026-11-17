@@ -243,10 +243,17 @@ Then read `ST/nkb-pick.json` ({"key", "name", "kind", "accent", "effects"}) and 
 ```
 PY "SK/scripts/my_styles.py" save "<name>" --from-nkb <key> --accent "<accent>"
 ```
-`<name>` = the style's name unless she gave her own. Confirm in ONE plain sentence: "Zapisane: Viral w kolorze Twojej
+`<name>` = the style's name unless she gave her own. A style with fixed colours (Yapping: `"fixedColours": true`,
+`accent=fixed` in the STATUS line) is saved without `--accent`: her brand colour never appears in it, not in the
+captions, the layers or a storyboard, and you say "w stałych kolorach stylu" instead of "w kolorze Twojej marki".
+Confirm in ONE plain sentence: "Zapisane: Viral w kolorze Twojej
 marki, efekty: Licznik i Neon. Wrzuć nagrania i napisz: zmontuj." (no effects ticked: "efekty dobiorę sama do
 każdego nagrania"). Then read the style's `style.md` before the first edit in it: it says what each reel needs (a
-cutout, her b-roll for Kulisy, her brand name for Redakcja).
+cutout, her b-roll for Kulisy, her brand name for Redakcja) and which graphic elements the look is made of. Those
+elements ARE the style: write them into every reel's plan.json exactly as style.md gives them (Yapping: one word at
+the left plus its five compositions, whose look is already in the style), never your own captions or layers instead.
+The picker's "caption styles not found" line is gone; if an old copy prints it, it means nothing: the 20 caption
+styles are in the catalog page and in `nkb-styles/`.
 
 ## Effects
 
@@ -335,8 +342,33 @@ could not be matched. Never fake it.
 8. Talk to the buyer in plain words. Never show them file names of this skill, STATUS lines or stack traces.
 9. The buyer picks the fragments before every cut (step 1b). Never skip it on your own judgement: not because
    ingest ran earlier, not because there is one clip or one take, not because a concept or b-roll plan was agreed,
-   not because she said "działaj" or "edytuj". Only "wybierz sam" / "nie chcę wybierać" from her, in this edit, or
-   no browser skips it. `assemble.py` refuses to cut without her pick.
+   not because she said "działaj" or "edytuj", and NOT because she asked for a storyboard. Only "wybierz sam" /
+   "nie chcę wybierać" from her, in this edit, or no browser skips it. `assemble.py` refuses to cut without her pick.
+   A storyboard always comes AFTER the pick. A plain "pokaż storyboard" / "zrób najpierw storyboard" means: open the
+   fragment picker first, cut what she ticked, then the storyboard of that cut. If she ALSO asks you to choose the
+   fragments yourself ("zrób storyboard i sam wybierz najlepsze fragmenty", "wybierz najlepsze momenty i pokaż
+   storyboard"), that is her "wybierz sam": `fragments.py --auto buyer`, pick the takes, cut, then the storyboard
+   of that cut, where she can still change your choice. Never a storyboard of the raw clips, and never you choosing
+   the moments unless she asked for it in this edit.
+
+## Storyboard (only when she asks for one)
+
+Not a default step. It comes after the cut is assembled and `layout.py` ran (steps 1b to 6), and before the first
+effect slot: no slot, no build, no render until she says yes.
+- **The fragment picker comes first** (hard rule 9). Before you write the page, check `<project>/fragments.json`: it
+  exists, is newer than `transcript.txt`, and says `"by": "buyer"` (or `"claude"` with the reason `buyer` /
+  `no-browser`). Anything else: say "Najpierw zaznacz, które fragmenty zostają, potem pokażę storyboard" and open
+  the fragment picker, unless she asked you to choose the fragments yourself (then `--auto buyer`, and say in one
+  sentence which lines you left out, so she can put one back).
+- **Frames from the engine, never drawn by hand.** Write plan.json from her style's `style.md` ("Graphic elements"),
+  run `build_reel.py "<project>" --safe`, then `hf.py "<project>" snapshot --at <the moments> --no-end --describe
+  false`, and put those frames on the page (`<project>/storyboard/storyboard.html`, a plain local page in her
+  language, no file names). Every second on it is a second of her cut, not of the original recording.
+- **Compare before you show it**: the frames must match her style's card in the catalog (`picker/nkb.html`) or her
+  examples: same caption look, same graphic elements, same colours (a style with fixed colours never shows her brand
+  colour). Anything else: fix plan.json and take the frames again first.
+- Per moment: the frame, the words she says there, start and end second, and the effect planned there. Every open
+  choice as one short question on its row. Her notes go in, then her yes, then the effects.
 
 ## Workflow ("edit it")
 
@@ -389,6 +421,7 @@ plan or "use the concept and edit it" is not her pick of the lines.
 6. PY "SK/scripts/init_project.py" "<project>" [--my-style "<name>"]   fonts, project files, starter plan.json
        (leave --my-style out for the default style). Write the pinned title, any on-screen text an overall style
        needs, and the reel's own parts of the style ("Graphic elements" in style.md, from THIS reel's words) into plan.json
+6b. storyboard, ONLY when she asks for one: after 1b, on engine frames of her cut ("Storyboard" above)
 7. effects        PY "SK/scripts/footage_check.py" "<project>"   (none picked = AUTO: it checks them all and you
        pick 1 to 3 that fit; a picked one that SKIPs: tell her why, "Effects" above). For each one you use:
        it says "ready":   PY "SK/scripts/fx_new.py" <key> --project "<project>" --from <sec> --to <sec>
